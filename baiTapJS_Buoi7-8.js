@@ -19,7 +19,21 @@ function tinhTongSoDuong(){
             sum+= nums[i];
         } 
     }
-    document.getElementById("txtTinhTong").innerHTML = sum;
+    document.getElementById("txtTinhTong").innerHTML = "Tổng các số dương là: " + sum;
 
 }
 document.getElementById("tinhTong").onclick = tinhTongSoDuong;
+
+//Đếm số dương
+function demSoDuong(){
+    var soDuong = 0;
+   for (i = 0; i < nums.length; i++) {
+        if (nums[i] > 0){
+            // Sỗ âm
+            soDuong++;
+        } 
+    }
+    document.getElementById("txtDemSoDuong").innerHTML = "Số dương: " + soDuong;
+
+}
+document.getElementById("demSoDuong").onclick = demSoDuong;
