@@ -35,7 +35,7 @@ function demSoDuong(){
         } 
     }
     document.getElementById("txtDemSoDuong").innerHTML = "Số dương: " + soDuong;
-
+    return soDuong;
 }
 document.getElementById("demSoDuong").onclick = demSoDuong;
 
@@ -140,3 +140,101 @@ document.getElementById("doiViTri").onclick = doiViTri;
     document.getElementById("txtsapXepTangDan").innerHTML = nums2;
 }
 document.getElementById("sapXepTangDan").onclick = sapXepTangDan;
+
+/**
+ * 8-Tìm số nguyên tố đầu tiên của mảng
+ */
+
+ function kiemTraSo(num) {
+    var ketqua = true;
+    
+    if (num < 2) {
+        ketqua = false;
+    } else if (num == 2) {
+        ketqua = true;
+    }else if (num % 2 == 0) {
+        ketqua = false;
+    }else {
+        for (var i = 3; i <=  Math.sqrt(num); i += 2) {
+            if (num % i == 0) {
+                return  false;
+            }
+        }
+    }
+    return ketqua;
+ }
+
+function inSoNT() {
+    var soNT = "";
+    for (var i = 0; i < nums.length; i++) {
+        if (kiemTraSo(nums[i])) {
+            soNT = nums[i];
+            break;
+        }else{
+            soNT = -1;
+        }
+    }
+    document.getElementById("txtSoNT").innerHTML = soNT;
+}
+document.getElementById("timSoNguyenTo").onclick = inSoNT;
+
+/**
+ * 9-Đếm số nguyên
+ */
+
+ var nums3 = [];
+
+ function  themSoThuc(){
+     var num = Number(document.querySelector("#soThuc").value);
+     //push: lưu giá trị mới vào mảng;
+     nums3.push(num);
+     console.log(nums3);
+     document.getElementById("txtSoThuc").innerHTML = nums3;
+ }
+ document.getElementById("themSoThuc").onclick = themSoThuc;
+
+ function demSoNguyen(){
+    var soNguyen = 0;
+    for (let i = 0; i < nums3.length; i++) {
+        if(Number.isInteger(nums3[i])){
+            soNguyen++;
+        }
+    }
+    document.getElementById("txtSoThuc").innerHTML = soNguyen;
+}
+ document.getElementById("timSoNguyen").onclick = demSoNguyen;
+
+
+ /**
+  * 10 - So sánh số lượng số âm và số dương
+  */
+
+  function soSanh(){
+    //Đếm số âm
+    var soAm = 0;
+    var kq = "";
+   for (i = 0; i < nums.length; i++) {
+        if (nums[i] < 0){
+            // Sỗ âm
+            soAm++;
+        } 
+    }
+    //Đếm số dương
+    var soDuong = 0;
+   for (i = 0; i < nums.length; i++) {
+        if (nums[i] > 0){
+            soDuong++;
+        } 
+    }
+    if (soAm > soDuong){
+        kq = "Số âm > Số dương";
+    }else if (soAm < soDuong){
+        kq = "Số âm < Số dương";
+    }else{
+        kq = "Số âm = Số dương";
+    }
+    document.getElementById("txtSoSanh").innerHTML = kq;
+}
+document.getElementById("soSanh").onclick = soSanh;
+
+
